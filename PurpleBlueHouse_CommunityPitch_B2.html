@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Purple Blue House × B² — Community Pitch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,600;12..96,800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:   #0D0D0D;
+  --cream: #F5F0E8;
+  --acid:  #C8F23A;
+  --punch: #FF3D2E;
+  --gold:  #F2C94C;
+  --bone:  #EDE8DF;
+  --dim:   rgba(245,240,232,0.4);
+  --faint: rgba(245,240,232,0.07);
+  --pbh-purple: #6B4FBB;
+  --pbh-blue:   #3B82F6;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--ink);color:var(--cream);font-family:'Bricolage Grotesque',sans-serif;overflow-x:hidden;}
+
+/* ── TOPBAR ── */
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:10px 40px;border-bottom:1px solid var(--faint);}
+.tb-lbl{font-family:'DM Mono',monospace;font-size:9px;font-weight:300;letter-spacing:0.22em;text-transform:uppercase;color:var(--dim);}
+.tb-pip{width:7px;height:7px;border-radius:50%;background:var(--acid);animation:pulse 2s ease-in-out infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.5;transform:scale(1.3);}}
+
+/* ── COVER ── */
+.cover{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:64px 40px 56px;position:relative;overflow:hidden;border-bottom:1px solid var(--faint);}
+.cover-grid{position:absolute;inset:0;display:grid;grid-template-columns:repeat(10,1fr);pointer-events:none;}
+.cg{border-right:1px solid var(--faint);}
+.cover-wm{position:absolute;bottom:-32px;right:-16px;font-family:'Unbounded',sans-serif;font-size:28vw;font-weight:900;color:rgba(200,242,58,0.025);line-height:1;pointer-events:none;letter-spacing:-8px;}
+
+.cover-tag{font-family:'DM Mono',monospace;font-size:9px;font-weight:300;letter-spacing:0.25em;text-transform:uppercase;color:var(--dim);display:flex;align-items:center;gap:10px;margin-bottom:48px;}
+.cover-tag::before{content:'';width:24px;height:1px;background:var(--acid);}
+
+.cover-headline{font-family:'Unbounded',sans-serif;font-weight:900;font-size:clamp(52px,8vw,110px);line-height:0.9;letter-spacing:-3px;color:var(--cream);margin-bottom:32px;}
+.cover-headline .ac{color:var(--acid);}
+.cover-headline .pu{color:var(--punch);}
+
+.cover-sub{font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(14px,1.6vw,20px);font-weight:300;color:var(--dim);max-width:540px;line-height:1.7;margin-bottom:56px;}
+
+.cover-from{display:flex;align-items:center;gap:24px;}
+.from-logo{display:inline-flex;align-items:flex-start;}
+.from-B{font-family:'Unbounded',sans-serif;font-weight:900;font-size:40px;color:var(--cream);line-height:0.88;letter-spacing:-2px;}
+.from-sup{font-family:'Unbounded',sans-serif;font-weight:900;font-size:16px;color:var(--acid);line-height:1;margin-top:2px;margin-left:2px;}
+.from-div{width:1px;height:30px;background:rgba(245,240,232,0.15);}
+.from-wm{display:flex;flex-direction:column;gap:2px;}
+.from-top{font-family:'Unbounded',sans-serif;font-weight:900;font-size:10px;letter-spacing:0.5px;text-transform:uppercase;line-height:1.2;color:var(--cream);}
+.from-bot{font-family:'Unbounded',sans-serif;font-weight:900;font-size:10px;letter-spacing:0.5px;text-transform:uppercase;line-height:1.2;color:var(--acid);}
+.from-sep{font-family:'DM Mono',monospace;font-size:9px;color:var(--dim);letter-spacing:0.12em;}
+.for-label{font-family:'DM Mono',monospace;font-size:9px;font-weight:300;letter-spacing:0.18em;text-transform:uppercase;color:rgba(107,79,187,0.9);background:rgba(107,79,187,0.12);border:1px solid rgba(107,79,187,0.3);padding:6px 14px;border-radius:2px;}
+
+/* ── SECTION LABELS ── */
+.sec-lbl{font-family:'DM Mono',monospace;font-size:9px;font-weight:300;letter-spacing:0.25em;text-transform:uppercase;color:var(--dim);padding:48px 40px 20px;display:flex;align-items:center;gap:10px;}
+.sec-lbl::before{content:'';width:18px;height:2px;background:var(--acid);}
+
+/* ── STORY SECTIONS ── */
+.story{padding:0 40px 64px;}
+
+/* Act 1 – The Problem */
+.act-header{margin-bottom:40px;}
+.act-num{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.25em;text-transform:uppercase;color:var(--acid);margin-bottom:12px;}
+.act-title{font-family:'Unbounded',sans-serif;font-weight:900;font-size:clamp(32px,5vw,64px);line-height:0.95;letter-spacing:-2px;}
+.act-title .ac{color:var(--acid);}
+.act-title .pu{color:var(--punch);}
+
+.prose{font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(14px,1.5vw,18px);font-weight:300;color:var(--dim);line-height:1.8;max-width:720px;margin-bottom:24px;}
+.prose strong{font-weight:600;color:var(--cream);}
+.prose .highlight{color:var(--acid);font-weight:600;}
+
+/* stat cards */
+.stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2px;margin:40px 0;}
+.stat-card{padding:32px 24px;border:1px solid var(--faint);}
+.stat-num{font-family:'Unbounded',sans-serif;font-weight:900;font-size:clamp(40px,6vw,72px);line-height:1;letter-spacing:-2px;color:var(--acid);margin-bottom:8px;}
+.stat-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--dim);}
+.stat-desc{font-family:'Bricolage Grotesque',sans-serif;font-size:13px;font-weight:300;color:rgba(245,240,232,0.5);margin-top:6px;line-height:1.5;}
+
+/* ── TICKER ── */
+.ticker{background:var(--acid);padding:9px 0;overflow:hidden;white-space:nowrap;}
+.ticker-inner{display:inline-block;animation:tick 28s linear infinite;}
+.ti{font-family:'Unbounded',sans-serif;font-size:9px;font-weight:900;color:var(--ink);letter-spacing:0.08em;text-transform:uppercase;display:inline-block;margin-right:28px;}
+.td{display:inline-block;width:4px;height:4px;background:var(--punch);border-radius:50%;vertical-align:middle;margin-right:28px;margin-bottom:1px;}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── DIVIDER ── */
+.divider{height:1px;background:var(--faint);margin:0 40px;}
+.divider-full{height:1px;background:var(--faint);}
+
+/* ── BIG QUOTE ── */
+.big-quote{padding:64px 40px;border-bottom:1px solid var(--faint);}
+.bq-text{font-family:'Unbounded',sans-serif;font-weight:900;font-size:clamp(24px,3.5vw,48px);line-height:1.15;letter-spacing:-1px;max-width:900px;}
+.bq-text .ac{color:var(--acid);}
+.bq-text .pu{color:var(--punch);}
+.bq-attr{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--dim);margin-top:24px;}
+
+/* ── ACTIVATION CARDS ── */
+.activations{padding:0 40px 64px;}
+.act-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2px;margin-top:8px;}
+.act-card{border:1px solid var(--faint);padding:32px 28px;position:relative;overflow:hidden;transition:border-color 0.2s;}
+.act-card:hover{border-color:var(--acid);}
+.act-card-num{font-family:'Unbounded',sans-serif;font-weight:900;font-size:80px;color:rgba(200,242,58,0.05);position:absolute;top:-10px;right:12px;line-height:1;pointer-events:none;}
+.act-card-tag{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:0.2em;text-transform:uppercase;color:var(--acid);margin-bottom:16px;display:flex;align-items:center;gap:8px;}
+.act-card-tag::before{content:'';width:12px;height:1px;background:var(--acid);}
+.act-card-title{font-family:'Unbounded',sans-serif;font-weight:900;font-size:18px;line-height:1.2;color:var(--cream);margin-bottom:14px;letter-spacing:-0.5px;}
+.act-card-desc{font-family:'Bricolage Grotesque',sans-serif;font-size:13px;font-weight:300;color:var(--dim);line-height:1.7;margin-bottom:20px;}
+.act-card-details{display:flex;flex-wrap:wrap;gap:6px;}
+.detail-pill{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:0.12em;text-transform:uppercase;padding:4px 10px;border:1px solid var(--faint);color:rgba(245,240,232,0.6);}
+.detail-pill.ac{border-color:rgba(200,242,58,0.3);color:var(--acid);background:rgba(200,242,58,0.06);}
+.detail-pill.pu{border-color:rgba(255,61,46,0.3);color:var(--punch);background:rgba(255,61,46,0.06);}
+.detail-pill.go{border-color:rgba(242,201,76,0.3);color:var(--gold);background:rgba(242,201,76,0.06);}
+
+/* ── PUNCH BG SECTION ── */
+.punch-section{background:var(--punch);padding:64px 40px;}
+.punch-section .act-num{color:var(--ink);}
+.punch-section .act-title{color:var(--ink);}
+.punch-section .prose{color:rgba(13,13,13,0.7);}
+.punch-section .prose strong{color:var(--ink);}
+
+/* ── COMMERCIAL SECTION ── */
+.commercial{padding:64px 40px;background:#0f0f0f;}
+.comm-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:40px;}
+@media(max-width:700px){.comm-grid{grid-template-columns:1fr;}}
+.comm-card{padding:40px 32px;border:1px solid var(--faint);}
+.comm-card.featured{border-color:rgba(200,242,58,0.4);background:rgba(200,242,58,0.03);}
+.comm-card-lbl{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:0.2em;text-transform:uppercase;color:var(--dim);margin-bottom:20px;}
+.comm-price{font-family:'Unbounded',sans-serif;font-weight:900;font-size:clamp(28px,4vw,48px);line-height:1;letter-spacing:-1px;color:var(--cream);margin-bottom:8px;}
+.comm-price .ac{color:var(--acid);}
+.comm-price-sub{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--dim);margin-bottom:24px;}
+.comm-items{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.comm-items li{font-family:'Bricolage Grotesque',sans-serif;font-size:13px;font-weight:300;color:var(--dim);line-height:1.5;display:flex;gap:10px;align-items:flex-start;}
+.comm-items li::before{content:'→';color:var(--acid);font-size:11px;margin-top:2px;flex-shrink:0;}
+
+/* ── RETAINER VISUAL ── */
+.retainer-vis{padding:48px 40px;border-bottom:1px solid var(--faint);}
+.rv-title{font-family:'Unbounded',sans-serif;font-weight:900;font-size:24px;letter-spacing:-0.5px;color:var(--cream);margin-bottom:32px;}
+.rv-timeline{display:grid;grid-template-columns:repeat(12,1fr);gap:4px;margin-bottom:20px;}
+.rv-month{padding:12px 8px;border:1px solid var(--faint);text-align:center;}
+.rv-month.active{background:rgba(200,242,58,0.1);border-color:rgba(200,242,58,0.4);}
+.rv-month.capped{background:rgba(255,61,46,0.1);border-color:rgba(255,61,46,0.4);}
+.rv-month-num{font-family:'DM Mono',monospace;font-size:7px;letter-spacing:0.15em;color:var(--dim);display:block;}
+.rv-month-dot-row{display:flex;justify-content:center;gap:2px;margin-top:6px;}
+.rv-dot{width:6px;height:6px;border-radius:50%;background:var(--acid);opacity:0.8;}
+.rv-dot.used{background:var(--punch);}
+.rv-legend{display:flex;gap:24px;margin-top:16px;}
+.rv-leg-item{display:flex;align-items:center;gap:6px;font-family:'DM Mono',monospace;font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:var(--dim);}
+.rv-leg-dot{width:8px;height:8px;border-radius:50%;}
+
+/* ── CLOSE SECTION ── */
+.close-section{padding:80px 40px 64px;background:var(--acid);}
+.close-hl{font-family:'Unbounded',sans-serif;font-weight:900;font-size:clamp(36px,6vw,80px);line-height:0.92;letter-spacing:-2px;color:var(--ink);margin-bottom:32px;}
+.close-body{font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(14px,1.5vw,18px);font-weight:300;color:rgba(13,13,13,0.6);max-width:600px;line-height:1.8;margin-bottom:40px;}
+.close-cta{display:inline-flex;align-items:center;gap:12px;background:var(--ink);color:var(--cream);font-family:'Unbounded',sans-serif;font-weight:900;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;padding:18px 32px;text-decoration:none;}
+.close-cta:hover{background:var(--punch);color:var(--cream);}
+.close-from{margin-top:48px;display:flex;align-items:center;gap:16px;}
+.cf-B{font-family:'Unbounded',sans-serif;font-weight:900;font-size:28px;color:var(--ink);line-height:0.88;letter-spacing:-1px;}
+.cf-sup{font-family:'Unbounded',sans-serif;font-weight:900;font-size:11px;color:var(--punch);line-height:1;margin-top:2px;margin-left:1px;}
+.cf-div{width:1px;height:22px;background:rgba(13,13,13,0.2);}
+.cf-wm{display:flex;flex-direction:column;}
+.cf-top{font-family:'Unbounded',sans-serif;font-weight:900;font-size:8px;letter-spacing:0.5px;text-transform:uppercase;color:var(--ink);}
+.cf-bot{font-family:'Unbounded',sans-serif;font-weight:900;font-size:8px;letter-spacing:0.5px;text-transform:uppercase;color:var(--punch);}
+
+/* ── FOOTER ── */
+.footer{background:var(--ink);border-top:1px solid var(--faint);padding:28px 40px;display:flex;align-items:center;justify-content:space-between;}
+.ft-url{font-family:'DM Mono',monospace;font-size:9px;font-weight:300;letter-spacing:0.2em;text-transform:uppercase;color:var(--dim);}
+
+/* ── RESPONSIVE ── */
+@media(max-width:600px){
+  .cover{padding:40px 20px 40px;}
+  .story,.activations,.commercial,.retainer-vis,.big-quote,.close-section{padding-left:20px;padding-right:20px;}
+  .sec-lbl,.footer,.topbar{padding-left:20px;padding-right:20px;}
+  .act-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <span class="tb-lbl">B² × Purple Blue House — Community Pitch · 2025</span>
+  <div class="tb-pip"></div>
+</div>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-grid">
+    <div class="cg"></div><div class="cg"></div><div class="cg"></div><div class="cg"></div>
+    <div class="cg"></div><div class="cg"></div><div class="cg"></div><div class="cg"></div>
+    <div class="cg"></div><div class="cg"></div>
+  </div>
+  <div class="cover-wm">B²</div>
+
+  <div class="cover-tag">Community Proposal · Confidential</div>
+
+  <div class="cover-headline">
+    Your Brand<br>
+    Needs a<br>
+    <span class="ac">Heartbeat.</span>
+  </div>
+
+  <div class="cover-sub">
+    Online presence gets you noticed. Community gets you loved.<br>
+    A pitch for Purple Blue House on building real-world moments that create lifelong advocates.
+  </div>
+
+  <div class="cover-from">
+    <div class="from-logo">
+      <span class="from-B">B</span><span class="from-sup">²</span>
+    </div>
+    <div class="from-div"></div>
+    <div class="from-wm">
+      <span class="from-top">Budget &amp;</span>
+      <span class="from-bot">Brains</span>
+    </div>
+    <span class="from-sep">→</span>
+    <div class="for-label">Purple Blue House</div>
+  </div>
+</div>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="ti">Community</span><span class="td"></span>
+    <span class="ti">Activation</span><span class="td"></span>
+    <span class="ti">Real People</span><span class="td"></span>
+    <span class="ti">Real Rooms</span><span class="td"></span>
+    <span class="ti">Real Impact</span><span class="td"></span>
+    <span class="ti">Built with Brains</span><span class="td"></span>
+    <span class="ti">Purple Blue House</span><span class="td"></span>
+    <span class="ti">Community</span><span class="td"></span>
+    <span class="ti">Activation</span><span class="td"></span>
+    <span class="ti">Real People</span><span class="td"></span>
+    <span class="ti">Real Rooms</span><span class="td"></span>
+    <span class="ti">Real Impact</span><span class="td"></span>
+    <span class="ti">Built with Brains</span><span class="td"></span>
+    <span class="ti">Purple Blue House</span><span class="td"></span>
+  </div>
+</div>
+
+<!-- ACT 1 — THE WORLD WE'RE IN -->
+<div class="sec-lbl">Act 01 — The World We're In</div>
+<div class="story">
+  <div class="act-header">
+    <div class="act-num">The Problem</div>
+    <div class="act-title">Screens are<br>everywhere.<br><span class="ac">Attention</span> isn't.</div>
+  </div>
+
+  <p class="prose">
+    Brands today spend crores chasing eyeballs on feeds that refresh every three seconds. They get impressions. They get likes. What they <strong>don't</strong> get is <span class="highlight">loyalty</span>.
+  </p>
+  <p class="prose">
+    The uncomfortable truth? You can have 100,000 followers and still walk into a room where nobody knows who you are. Online buzz doesn't always translate to offline trust — and in a world where people are more connected than ever, they're also more <strong>starved for real connection</strong> than ever.
+  </p>
+
+  <div class="stat-row">
+    <div class="stat-card">
+      <div class="stat-num">92%</div>
+      <div class="stat-label">Trust people over brands</div>
+      <div class="stat-desc">of consumers trust peer recommendations over advertising — Nielsen Global</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">5×</div>
+      <div class="stat-label">Community-acquired customers</div>
+      <div class="stat-desc">more likely to become repeat buyers vs. paid ad acquisition</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">66%</div>
+      <div class="stat-label">Crave real experiences</div>
+      <div class="stat-desc">of millennials prefer spending on experiences over things — Eventbrite</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-full"></div>
+
+<!-- BIG QUOTE 1 -->
+<div class="big-quote">
+  <div class="bq-text">
+    "The brands that win the next decade<br>won't be the loudest online.<br>They'll be the ones that <span class="ac">own the room.</span>"
+  </div>
+  <div class="bq-attr">— Budget & Brains · Community Thesis · 2025</div>
+</div>
+
+<!-- ACT 2 — THE PROTAGONIST -->
+<div class="sec-lbl">Act 02 — The Protagonist</div>
+<div class="story">
+  <div class="act-header">
+    <div class="act-num">Purple Blue House</div>
+    <div class="act-title">A brand built<br>for <span class="ac">belonging.</span></div>
+  </div>
+
+  <p class="prose">
+    Purple Blue House isn't just an agency. It's a <strong>cultural stance</strong>. The name itself signals something — a space that's not quite by-the-book, a little unexpected, a place people want to walk into.
+  </p>
+  <p class="prose">
+    That energy is your biggest asset. And right now, it's mostly living online. <strong>What happens when we bring it into a room?</strong> When the people who admire your work from a screen actually sit next to each other? When your brand becomes the place people remember meeting someone who changed their business?
+  </p>
+  <p class="prose">
+    That's the story we want to write with you. Not a campaign. <span class="highlight">A community.</span>
+  </p>
+</div>
+
+<!-- ACT 3 — THE TENSION -->
+<div class="punch-section">
+  <div class="sec-lbl" style="padding-left:0;padding-top:0;color:rgba(13,13,13,0.4);">
+    <span style="color:var(--ink);">Act 03 — The Tension</span>
+  </div>
+  <div class="act-header">
+    <div class="act-num" style="color:rgba(13,13,13,0.5);">The Challenge</div>
+    <div class="act-title">Events are<br>expensive.<br>Bad ones are<br><em>catastrophic.</em></div>
+  </div>
+  <p class="prose">
+    The problem with most "community events" is that they're either <strong>overproduced vanity shows</strong> that drain budget and deliver selfies, or <strong>low-effort meetups</strong> that feel like afterthoughts.
+  </p>
+  <p class="prose">
+    Neither builds anything. And brands burn out trying to do them quarterly without a system, without a story, without a partner who makes each event feel like it <strong>could only have come from them.</strong>
+  </p>
+</div>
+
+<!-- ACT 4 — THE SOLUTION -->
+<div class="sec-lbl">Act 04 — Enter B²</div>
+<div class="story">
+  <div class="act-header">
+    <div class="act-num">The Plan</div>
+    <div class="act-title">Consistent.<br>Intentional.<br><span class="ac">Unforgettable.</span></div>
+  </div>
+
+  <p class="prose">
+    We bring the <strong>creative vision</strong> and the <strong>execution muscle</strong>. You bring the brand. Together, we build a community programme that compounds — each event building on the last, each room bigger, warmer, and more valuable than before.
+  </p>
+  <p class="prose">
+    Think of it as a <span class="highlight">monthly heartbeat</span>. One event. One story. One moment that becomes the thing people talk about the following month. And when the energy is right, we dial it up — two events, even three — because momentum deserves to be met.
+  </p>
+</div>
+
+<!-- ACTIVATIONS -->
+<div class="sec-lbl">Act 05 — The Activations</div>
+<div class="activations">
+  <p class="prose" style="margin-bottom:32px;">
+    Six community activation formats built specifically for Purple Blue House's brand positioning. Each is distinct, each is ownable, and each creates a different kind of memory.
+  </p>
+
+  <div class="act-grid">
+
+    <div class="act-card">
+      <div class="act-card-num">01</div>
+      <div class="act-card-tag">Signature Event</div>
+      <div class="act-card-title">The Purple Room</div>
+      <div class="act-card-desc">
+        A curated invite-only evening for founders, creatives, and decision-makers. Think intimate dinner meets portfolio showcase — with conversation cards, a keynote from a local voice, and your brand as the host that brings people together who should have met years ago.
+      </div>
+      <div class="act-card-details">
+        <span class="detail-pill ac">30–60 guests</span>
+        <span class="detail-pill">Quarterly Flagship</span>
+        <span class="detail-pill pu">High recall</span>
+      </div>
+    </div>
+
+    <div class="act-card">
+      <div class="act-card-num">02</div>
+      <div class="act-card-tag">Education Series</div>
+      <div class="act-card-title">House Talks</div>
+      <div class="act-card-desc">
+        A monthly intimate workshop or panel where Purple Blue House hosts 1–2 industry voices for a 90-minute session on a theme relevant to your audience — branding, growth, culture, design. Builds authority. Earns gratitude.
+      </div>
+      <div class="act-card-details">
+        <span class="detail-pill ac">20–40 guests</span>
+        <span class="detail-pill">Monthly Cadence</span>
+        <span class="detail-pill go">Authority builder</span>
+      </div>
+    </div>
+
+    <div class="act-card">
+      <div class="act-card-num">03</div>
+      <div class="act-card-tag">Pop-Up Experience</div>
+      <div class="act-card-title">The Open House</div>
+      <div class="act-card-desc">
+        A one-day brand pop-up in a public or semi-public space — a café, co-working lobby, gallery space. Live work sessions, open portfolio reviews, or a mini design sprint for local brands. The brand becomes a utility, not just a presence.
+      </div>
+      <div class="act-card-details">
+        <span class="detail-pill ac">Open entry</span>
+        <span class="detail-pill pu">Footfall-driven</span>
+        <span class="detail-pill">Bi-monthly</span>
+      </div>
+    </div>
+
+    <div class="act-card">
+      <div class="act-card-num">04</div>
+      <div class="act-card-tag">Co-Creation Event</div>
+      <div class="act-card-title">Build Nights</div>
+      <div class="act-card-desc">
+        Evening sessions where your community actually makes something together — a brand moodboard, a campaign concept, a city guide. Purple Blue House provides the space, the brief, the materials, and the energy. Participants leave with something real. So does your brand.
+      </div>
+      <div class="act-card-details">
+        <span class="detail-pill ac">15–25 guests</span>
+        <span class="detail-pill go">UGC goldmine</span>
+        <span class="detail-pill">Monthly</span>
+      </div>
+    </div>
+
+    <div class="act-card">
+      <div class="act-card-num">05</div>
+      <div class="act-card-tag">Outdoor / City Activation</div>
+      <div class="act-card-title">Street Play</div>
+      <div class="act-card-desc">
+        A guerrilla-format street activation — a painted wall mural unveiling, an outdoor quiz game, a roving brand ambassador day in your city's creative district. Maximum reach, minimum infrastructure. Designed to go viral by being genuinely worth filming.
+      </div>
+      <div class="act-card-details">
+        <span class="detail-pill ac">Open public</span>
+        <span class="detail-pill pu">Viral-first design</span>
+        <span class="detail-pill">Seasonal</span>
+      </div>
+    </div>
+
+    <div class="act-card">
+      <div class="act-card-num">06</div>
+      <div class="act-card-tag">Loyalty & Inner Circle</div>
+      <div class="act-card-title">The Inner House</div>
+      <div class="act-card-desc">
+        A private community experience for your top clients and collaborators — annual or semi-annual. Dinner, reflection, planning together. This is where business relationships become something deeper. The event that clients mention in their own pitches.
+      </div>
+      <div class="act-card-details">
+        <span class="detail-pill go">15 guests max</span>
+        <span class="detail-pill ac">Loyalty engine</span>
+        <span class="detail-pill pu">Annual anchor</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- BIG QUOTE 2 -->
+<div class="big-quote" style="background:#0a0a0a;">
+  <div class="bq-text">
+    Every event we run is a chapter in<br>Purple Blue House's story.<br>We make sure <span class="ac">it's worth reading.</span>
+  </div>
+  <div class="bq-attr">— B² Community Philosophy</div>
+</div>
+
+<!-- COMMERCIALS -->
+<div class="sec-lbl">Act 06 — The Commercial</div>
+<div class="commercial">
+  <div class="act-header">
+    <div class="act-num">Pricing Structure</div>
+    <div class="act-title">Simple.<br><span class="ac">Honest.</span><br>Scales with you.</div>
+  </div>
+
+  <div class="comm-grid">
+    <div class="comm-card featured">
+      <div class="comm-card-lbl">Monthly Retainer</div>
+      <div class="comm-price">₹<span class="ac">50,000</span></div>
+      <div class="comm-price-sub">per month · execution retainer</div>
+      <ul class="comm-items">
+        <li>End-to-end event conceptualisation & production</li>
+        <li>Venue scouting, logistics & on-ground management</li>
+        <li>Guest coordination & communication</li>
+        <li>Post-event content briefs & recap materials</li>
+        <li>1 event per month included in retainer</li>
+        <li>Unused events accumulate month-on-month</li>
+      </ul>
+    </div>
+
+    <div class="comm-card">
+      <div class="comm-card-lbl">Event Costs</div>
+      <div class="comm-price">Actuals</div>
+      <div class="comm-price-sub">pass-through · zero markup</div>
+      <ul class="comm-items">
+        <li>All venue, catering & production costs billed at actuals</li>
+        <li>Transparent invoicing — every rupee accounted for</li>
+        <li>Pre-agreed budget envelopes before each event</li>
+        <li>No hidden handling fees or procurement margins</li>
+        <li>Annual recap of spend vs. impact delivered</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- RETAINER MECHANICS VISUAL -->
+<div class="retainer-vis">
+  <div class="rv-title">How the Event Bank Works</div>
+
+  <p class="prose" style="margin-bottom:32px;">
+    Your retainer of ₹50,000/month earns you <strong>1 event credit per month</strong>. Credits accumulate if unused — up to a <strong>cap of 3 events in any single month</strong>. Maximum of <strong>12 events per year</strong>. Use them when momentum is right.
+  </p>
+
+  <div class="rv-timeline">
+    <!-- Month examples: some accumulated, some used at 2-3 in a month -->
+    <div class="rv-month active">
+      <span class="rv-month-num">JAN</span>
+      <div class="rv-month-dot-row"><div class="rv-dot"></div></div>
+    </div>
+    <div class="rv-month active">
+      <span class="rv-month-num">FEB</span>
+      <div class="rv-month-dot-row"><div class="rv-dot used"></div></div>
+    </div>
+    <div class="rv-month active">
+      <span class="rv-month-num">MAR</span>
+      <div class="rv-month-dot-row"><div class="rv-dot"></div><div class="rv-dot"></div></div>
+    </div>
+    <div class="rv-month capped">
+      <span class="rv-month-num">APR</span>
+      <div class="rv-month-dot-row"><div class="rv-dot used"></div><div class="rv-dot used"></div><div class="rv-dot used"></div></div>
+    </div>
+    <div class="rv-month active">
+      <span class="rv-month-num">MAY</span>
+      <div class="rv-month-dot-row"><div class="rv-dot"></div></div>
+    </div>
+    <div class="rv-month active">
+      <span class="rv-month-num">JUN</span>
+      <div class="rv-month-dot-row"><div class="rv-dot used"></div></div>
+    </div>
+    <div class="rv-month active">
+      <span class="rv-month-num">JUL</span>
+      <div class="rv-month-dot-row"><div class="rv-dot"></div></div>
+    </div>
+    <div class="rv-month active">
+      <span class="rv-month-num">AUG</span>
+      <div class="rv-month-dot-row"><div class="rv-dot used"></div><div class="rv-dot used"></div></div>
+    </div>
+    <div class="rv-month active">
+      <span class="rv-month-num">SEP</span>
+      <div class="rv-month-dot-row"><div class="rv-dot"></div></div>
+    </div>
+    <div class="rv-month capped">
+      <span class="rv-month-num">OCT</span>
+      <div class="rv-month-dot-row"><div class="rv-dot used"></div><div class="rv-dot used"></div><div class="rv-dot used"></div></div>
+    </div>
+    <div class="rv-month active">
+      <span class="rv-month-num">NOV</span>
+      <div class="rv-month-dot-row"><div class="rv-dot used"></div></div>
+    </div>
+    <div class="rv-month active">
+      <span class="rv-month-num">DEC</span>
+      <div class="rv-month-dot-row"><div class="rv-dot"></div></div>
+    </div>
+  </div>
+
+  <div class="rv-legend">
+    <div class="rv-leg-item">
+      <div class="rv-leg-dot" style="background:var(--acid);"></div>
+      <span>Credit available / accumulated</span>
+    </div>
+    <div class="rv-leg-item">
+      <div class="rv-leg-dot" style="background:var(--punch);"></div>
+      <span>Event executed</span>
+    </div>
+    <div class="rv-leg-item">
+      <div class="rv-leg-dot" style="background:rgba(255,61,46,0.3);border:1px solid var(--punch)"></div>
+      <span>3-event cap month</span>
+    </div>
+  </div>
+
+  <!-- Key rules callout -->
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2px;margin-top:32px;">
+    <div class="stat-card">
+      <div class="stat-num">₹50K</div>
+      <div class="stat-label">Monthly Retainer</div>
+      <div class="stat-desc">Fixed. Predictable. Fair.</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">3×</div>
+      <div class="stat-label">Max events / month</div>
+      <div class="stat-desc">Credits accumulate, but quality never gets diluted</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">12</div>
+      <div class="stat-label">Max events / year</div>
+      <div class="stat-desc">A full year of community-first momentum</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">+Actuals</div>
+      <div class="stat-label">Production costs</div>
+      <div class="stat-desc">Transparent, pass-through. No surprises.</div>
+    </div>
+  </div>
+</div>
+
+<!-- CLOSE -->
+<div class="close-section">
+  <div class="close-hl">Let's build<br>something<br>people show<br>up for.</div>
+  <div class="close-body">
+    Purple Blue House has the brand. We have the system. Together, we build a community that compounds — one room, one story, one unforgettable evening at a time.
+  </div>
+  <a href="mailto:hello@budgetandbrains.com" class="close-cta">
+    Let's talk → hello@budgetandbrains.com
+  </a>
+
+  <div class="close-from" style="margin-top:48px;">
+    <div style="display:inline-flex;align-items:flex-start;">
+      <span class="cf-B">B</span><span class="cf-sup">²</span>
+    </div>
+    <div class="cf-div"></div>
+    <div class="cf-wm">
+      <span class="cf-top">Budget &amp;</span>
+      <span class="cf-bot">Brains</span>
+    </div>
+    <span style="font-family:'DM Mono',monospace;font-size:9px;color:rgba(13,13,13,0.4);letter-spacing:0.1em;">budgetandbrains.com</span>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div style="display:inline-flex;align-items:flex-start;gap:16px;">
+    <div style="display:inline-flex;align-items:flex-start;">
+      <span style="font-family:'Unbounded',sans-serif;font-weight:900;font-size:24px;color:var(--cream);line-height:0.88;letter-spacing:-1px;">B</span>
+      <span style="font-family:'Unbounded',sans-serif;font-weight:900;font-size:10px;color:var(--acid);line-height:1;margin-top:2px;margin-left:1px;">²</span>
+    </div>
+    <div style="width:1px;height:20px;background:var(--faint);align-self:center;"></div>
+    <div style="display:flex;flex-direction:column;gap:1px;">
+      <span style="font-family:'Unbounded',sans-serif;font-weight:900;font-size:8px;color:var(--cream);letter-spacing:0.5px;text-transform:uppercase;">Budget &amp;</span>
+      <span style="font-family:'Unbounded',sans-serif;font-weight:900;font-size:8px;color:var(--acid);letter-spacing:0.5px;text-transform:uppercase;">Brains</span>
+    </div>
+  </div>
+  <span class="ft-url">Prepared for Purple Blue House · Community Plan · 2025</span>
+</div>
+
+</body>
+</html>
